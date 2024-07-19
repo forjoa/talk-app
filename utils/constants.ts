@@ -10,6 +10,29 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  formContainer: {
+    backgroundColor: '#303136',
+    width: '80%',
+    padding: 20,
+    borderRadius: 10,
+    gap: 10,
+    borderWidth: 1,
+    borderColor: '#6C6E79',
+  },
+  inputContainer: {
+    gap: 8,
+  },
+  title: {
+    fontFamily: fontFamily,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  subtitle: {
+    fontFamily: fontFamily,
+    fontSize: 16,
+    color: '#B2B3BD',
+  },
   text: {
     fontFamily: fontFamily,
     fontSize: 16,
@@ -26,6 +49,7 @@ export const styles = StyleSheet.create({
     borderColor: 'red',
     borderWidth: 1,
     borderRadius: borderRadius,
+    alignItems: 'center',
   },
   primaryButton: {
     color: 'white',
@@ -38,6 +62,7 @@ export const styles = StyleSheet.create({
     borderColor: '#405EB2',
     borderWidth: 1,
     borderRadius: borderRadius,
+    alignItems: 'center',
   },
   secondaryButton: {
     backgroundColor: '#EEEEF0',
@@ -47,10 +72,21 @@ export const styles = StyleSheet.create({
     borderColor: '#393A40',
     borderWidth: 1,
     borderRadius: borderRadius,
+    alignItems: 'center',
   },
   textSecondaryButton: {
     color: 'black',
     fontFamily: fontFamily,
     fontSize: 16,
+  },
+  input: {
+    color: '#B2B3BD',
+    fontFamily: fontFamily,
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#5F606A',
+    borderRadius: 8,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
   },
 })

@@ -1,5 +1,6 @@
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { useRouter } from 'expo-router'
+import { styles } from '../utils/constants'
 
 export default function HomeScreen() {
   const router = useRouter()
@@ -7,24 +8,9 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Bienvenido a la app!</Text>
-      <Button
-        title="Logout"
-        onPress={() => router.push('/login')}
-      />
+      <Pressable onPress={() => router.push('/login')}>
+        <Text style={styles.warningButton}>Log out</Text>
+      </Pressable>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontFamily: 'JetBrainsMono',
-    fontSize: 16,
-    color: 'white',
-  },
-})

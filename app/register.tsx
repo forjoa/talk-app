@@ -1,5 +1,6 @@
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { useRouter } from 'expo-router'
+import { styles } from '../utils/constants'
 
 export default function RegisterScreen() {
   const router = useRouter()
@@ -7,24 +8,11 @@ export default function RegisterScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Register Screen</Text>
-      <Button
-        title="Volver a Login"
-        onPress={() => router.push('/login')}
-      />
+      <Pressable onPress={() => router.push('/login')}>
+        <View style={styles.secondaryButton}>
+          <Text style={styles.textSecondaryButton}>Return to login</Text>
+        </View>
+      </Pressable>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontFamily: 'JetBrainsMono',
-    fontSize: 16,
-    color: 'white',
-  },
-})

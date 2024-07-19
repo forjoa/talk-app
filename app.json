@@ -5,7 +5,8 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
+    "scheme": "dark",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -27,9 +28,12 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/JetBrainsMono-Regular.ttf"]
+          "fonts": [
+            "./assets/fonts/JetBrainsMono-Regular.ttf"
+          ]
         }
-      ]
+      ],
+      "expo-router"
     ]
   }
 }

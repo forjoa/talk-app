@@ -2,6 +2,7 @@ import { View, Text, Pressable, TextInput, StyleSheet } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useState } from 'react'
 import { styles } from '../utils/constants'
+import { storeData } from '../utils/localStorage'
 
 export default function LoginScreen() {
   const [username, setUsername] = useState<string>('')
@@ -9,8 +10,7 @@ export default function LoginScreen() {
   const router = useRouter()
 
   const handleLogin = () => {
-    // Aquí puedes agregar la lógica de autenticación
-    // Por ahora, simplemente redirigiremos al usuario a la pantalla principal
+    storeData('user', username)
     router.push('/')
   }
 

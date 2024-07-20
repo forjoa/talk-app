@@ -20,3 +20,11 @@ export const getData = async (key: string) => {
     console.error('Failed to fetch the data from storage', e)
   }
 }
+
+export const deleteItem = async (key: string) => {
+  try {
+    await AsyncStorage.removeItem(key)
+  } catch (e) {
+    console.error(`Error while deleting data: ${e}`)
+  }
+}

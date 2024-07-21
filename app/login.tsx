@@ -1,8 +1,9 @@
-import { View, Text, Pressable, TextInput, StyleSheet } from 'react-native'
+import { View, Text, Pressable, TextInput } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useState } from 'react'
 import { styles } from '../utils/constants'
 import { storeData } from '../utils/localStorage'
+import ToastManager, { Toast } from 'toastify-react-native'
 
 export default function LoginScreen() {
   const [username, setUsername] = useState<string>('')
@@ -10,12 +11,17 @@ export default function LoginScreen() {
   const router = useRouter()
 
   const handleLogin = () => {
-    storeData('user', username)
-    router.push('/')
+    if (username == '' || password == '') {
+      Toast.error('Please, complete the form', 'top')
+    } else {
+      storeData('user', username)
+      router.push('/')
+    }
   }
 
   return (
     <View style={styles.container}>
+      <ToastManager height={55} textStyle={styles.subtitle}/>
       <View style={styles.formContainer}>
         <Text style={styles.title}>Login</Text>
         <Text style={styles.subtitle}>You are welcome again!</Text>

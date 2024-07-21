@@ -5,16 +5,28 @@ import { useEffect, useState } from 'react'
 import { deleteItem, getData } from '../utils/localStorage'
 
 export default function HomeScreen() {
-  const [username, setUsername] = useState<string>()
+  const [username, setUsername] = useState<string | null>(null)
   const router = useRouter()
 
   useEffect(() => {
-    getData('user').then((u) => setUsername(u))
-  }, [username])
+    const fetchUsername = async () => {
+      const user = await getData('user')
+      if (user) {
+        setUsername(user)
+      } else {
+        router.replace('/login')
+      }
+    }
+    fetchUsername()
+  }, [])
 
   const logOut = async () => {
     await deleteItem('user')
-    router.push('/login')
+    router.replace('/login')
+  }
+
+  if (username === null) {
+    return null
   }
 
   return (

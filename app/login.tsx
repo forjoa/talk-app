@@ -21,7 +21,7 @@ export default function LoginScreen() {
 
   return (
     <View style={styles.container}>
-      <ToastManager height={55} textStyle={styles.subtitle}/>
+      <ToastManager height={55} textStyle={styles.textSecondaryButton}/>
       <View style={styles.formContainer}>
         <Text style={styles.title}>Login</Text>
         <Text style={styles.subtitle}>You are welcome again!</Text>

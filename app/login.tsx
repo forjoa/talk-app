@@ -4,24 +4,28 @@ import { useState } from 'react'
 import { styles } from '../utils/constants'
 import { storeData } from '../utils/localStorage'
 import ToastManager, { Toast } from 'toastify-react-native'
+import { login } from '../utils/lib'
 
 export default function LoginScreen() {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const router = useRouter()
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (username == '' || password == '') {
       Toast.error('Please, complete the form', 'top')
     } else {
-      storeData('user', username)
+      const { success, message } = await login(username, password)
+      console.log(success, message)
+
+      await storeData('user', username)
       router.push('/')
     }
   }
 
   return (
     <View style={styles.container}>
-      <ToastManager height={55} textStyle={styles.textSecondaryButton}/>
+      <ToastManager height={55} textStyle={styles.textSecondaryButton} />
       <View style={styles.formContainer}>
         <Text style={styles.title}>Login</Text>
         <Text style={styles.subtitle}>You are welcome again!</Text>

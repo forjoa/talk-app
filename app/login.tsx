@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { styles } from '../utils/constants'
 import { storeData } from '../utils/localStorage'
 import ToastManager, { Toast } from 'toastify-react-native'
-import { login } from '../utils/lib'
 
 export default function LoginScreen() {
   const [username, setUsername] = useState<string>('')
@@ -15,9 +14,6 @@ export default function LoginScreen() {
     if (username == '' || password == '') {
       Toast.error('Please, complete the form', 'top')
     } else {
-      const { success, message } = await login(username, password)
-      console.log(success, message)
-
       await storeData('user', username)
       router.push('/')
     }

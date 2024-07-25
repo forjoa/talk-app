@@ -14,8 +14,23 @@ export default function LoginScreen() {
     if (username == '' || password == '') {
       Toast.error('Please, complete the form', 'top')
     } else {
-      await storeData('user', username)
-      router.push('/')
+      const result = await fetch(
+        'https://talk-backend-l15w.onrender.com/api/auth/login',
+        {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      ).then((res) => res.json())
+
+      if (result.success) {
+        await storeData('user', result.session)
+        router.push('/')
+      } else {
+        Toast.error(result.message, 'top')
+      }
     }
   }
 

@@ -4,15 +4,35 @@ import { styles } from '../utils/constants'
 import { useEffect, useState } from 'react'
 import { deleteItem, getData } from '../utils/localStorage'
 
+interface UserI {
+  user_id: number
+  username: string
+  fullname: string
+  password: string
+  created_at: Date
+  iat: any
+  exp: any
+}
+
 export default function HomeScreen() {
-  const [username, setUsername] = useState<string | null>(null)
+  const [user, setUser] = useState<UserI | null>(null)
   const router = useRouter()
 
   useEffect(() => {
     const fetchUsername = async () => {
-      const user = await getData('user')
-      if (user) {
-        setUsername(user)
+      const userSession = await getData('user')
+      if (userSession) {
+        const result = await fetch(
+          'https://talk-backend-l15w.onrender.com/api/auth/getPayload',
+          {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ encrypted: userSession }),
+          }
+        ).then((res) => res.json())
+        setUser(result)
       } else {
         router.replace('/login')
       }
@@ -25,16 +45,20 @@ export default function HomeScreen() {
     router.replace('/login')
   }
 
-  if (username === null) {
+  if (user === null) {
     return null
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Bienvenido a la app, {username}!</Text>
-      <Pressable onPress={logOut}>
-        <Text style={styles.warningButton}>Log out</Text>
-      </Pressable>
+      <View style={styles.navContainer}>
+        <Text style={styles.text}>
+          Welcome, {user?.fullname.split(' ')[0]}!
+        </Text>
+        <Pressable onPress={logOut}>
+          <Text style={styles.warningButton}>Log out</Text>
+        </Pressable>
+      </View>
     </View>
   )
 }

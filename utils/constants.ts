@@ -89,4 +89,9 @@ export const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 12,
   },
+  navContainer: {
+    height: '90%',
+    flexDirection: 'row',
+    justifyContent: 'center'
+  }
 })

@@ -1,7 +1,7 @@
 import { View, Text, Pressable, TextInput } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useState } from 'react'
-import { styles } from '../utils/constants'
+import { API, styles } from '../utils/constants'
 import { storeData } from '../utils/localStorage'
 import ToastManager, { Toast } from 'toastify-react-native'
 
@@ -15,7 +15,7 @@ export default function LoginScreen() {
       Toast.error('Please, complete the form', 'top')
     } else {
       const result = await fetch(
-        'https://talk-backend-l15w.onrender.com/api/auth/login',
+        `${API}/api/auth/login`,
         {
           method: 'post',
           headers: {

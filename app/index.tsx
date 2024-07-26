@@ -1,6 +1,6 @@
 import { View, Text, Pressable, TextInput } from 'react-native'
 import { useRouter } from 'expo-router'
-import { styles } from '../utils/constants'
+import { API, styles } from '../utils/constants'
 import { useEffect, useState } from 'react'
 import { deleteItem, getData } from '../utils/localStorage'
 
@@ -24,7 +24,7 @@ export default function HomeScreen() {
       const userSession = await getData('user')
       if (userSession) {
         const result = await fetch(
-          'https://talk-backend-l15w.onrender.com/api/auth/getPayload',
+          `${API}/api/auth/getPayload`,
           {
             method: 'post',
             headers: {

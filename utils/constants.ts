@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native'
 
+export const API = 'https://talk-backend-l15w.onrender.com'
+
 export const fontFamily = 'JetBrainsMono'
 export const borderRadius = 8
 

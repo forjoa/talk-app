@@ -87,7 +87,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 1,
     borderColor: '#5F606A',
-    borderRadius: 8,
+    borderRadius: borderRadius,
     paddingVertical: 6,
     paddingHorizontal: 12,
   },
@@ -102,6 +102,19 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 14
-  }
+    marginBottom: 14,
+  },
+  chatList: {
+    marginTop: 14,
+  },
+  listItem: {
+    color: 'white',
+    fontFamily: fontFamily,
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#5F606A',
+    borderRadius: borderRadius,
+    padding: 10,
+    marginBottom: 10
+  },
 })

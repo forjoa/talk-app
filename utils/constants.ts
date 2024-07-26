@@ -91,7 +91,15 @@ export const styles = StyleSheet.create({
   },
   navContainer: {
     height: '90%',
+    width: '100%',
+    margin: 10,
+    borderRadius: borderRadius,
+    padding: 20,
+  },
+  header: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 14
   }
 })

@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, TextInput } from 'react-native'
 import { useRouter } from 'expo-router'
 import { styles } from '../utils/constants'
 import { useEffect, useState } from 'react'
@@ -16,6 +16,7 @@ interface UserI {
 
 export default function HomeScreen() {
   const [user, setUser] = useState<UserI | null>(null)
+  const [userSearching, setUserSearching] = useState<string>()
   const router = useRouter()
 
   useEffect(() => {
@@ -52,12 +53,19 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.navContainer}>
-        <Text style={styles.text}>
-          Welcome, {user?.fullname.split(' ')[0]}!
-        </Text>
-        <Pressable onPress={logOut}>
-          <Text style={styles.warningButton}>Log out</Text>
-        </Pressable>
+        <View style={styles.header}>
+          <Text style={styles.text}>Welcome, {user?.username}!</Text>
+          <Pressable onPress={logOut}>
+            <Text style={styles.warningButton}>Log out</Text>
+          </Pressable>
+        </View>
+        <TextInput
+            placeholder='Search a user'
+            onChangeText={setUserSearching}
+            value={userSearching}
+            style={styles.input}
+            placeholderTextColor='#888'
+          />
       </View>
     </View>
   )

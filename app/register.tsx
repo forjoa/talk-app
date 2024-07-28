@@ -1,7 +1,8 @@
 import { View, Text, Pressable, TextInput } from 'react-native'
 import { useRouter } from 'expo-router'
-import { styles } from '../utils/constants'
+import { API, styles } from '../utils/constants'
 import { useState } from 'react'
+import ToastManager, { Toast } from 'toastify-react-native'
 
 export default function RegisterScreen() {
   const [fullname, setFullname] = useState<string>()
@@ -9,8 +10,29 @@ export default function RegisterScreen() {
   const [password, setPassword] = useState<string>()
   const router = useRouter()
 
+  const handleSubmit = async () => {
+    if (username == '' || password == '') {
+      Toast.error('Please, complete the form', 'top')
+    } else {
+      const result = await fetch(`${API}/api/auth/register`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, fullname, password }),
+      }).then((res) => res.json())
+
+      if (result.success) {
+        router.push('/login')
+      } else {
+        Toast.error(result.message, 'top')
+      }
+    }
+  }
+
   return (
     <View style={styles.container}>
+      <ToastManager height={55} textStyle={styles.textSecondaryButton} />
       <View style={styles.formContainer}>
         <Text style={styles.title}>Register</Text>
         <Text style={styles.subtitle}>You are welcome again!</Text>
@@ -38,7 +60,7 @@ export default function RegisterScreen() {
             secureTextEntry={true}
           />
         </View>
-        <Pressable>
+        <Pressable onPress={handleSubmit}>
           <View style={styles.primaryButton}>
             <Text style={styles.text}>Sign up</Text>
           </View>

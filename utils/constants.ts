@@ -117,4 +117,31 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10
   },
+  messageContainer: {
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  messageRight: {
+    justifyContent: 'flex-end',
+  },
+  messageLeft: {
+    justifyContent: 'flex-start',
+  },
+  messageBubble: {
+    padding: 10,
+    borderRadius: borderRadius,
+    maxWidth: '80%',
+  },
+  messageBubbleRight: {
+    backgroundColor: '#3D63DD',
+    alignSelf: 'flex-end',
+  },
+  messageBubbleLeft: {
+    backgroundColor: '#EEEEF0',
+    alignSelf: 'flex-start',
+  },
+  messageText: {
+    color: '#FFFFFF',
+    fontFamily: 'JetBrainsMono',
+  },
 })

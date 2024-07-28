@@ -85,7 +85,10 @@ export default function HomeScreen() {
             style={styles.chatList}
             renderItem={({ item }) => (
               <Link
-                href={`/chat/${item.conversation_id}`}
+                href={{
+                  pathname: '/chat/[id]',
+                  params: { id: item.conversation_id },
+                }}
                 style={styles.listItem}
               >
                 {item.other_username}

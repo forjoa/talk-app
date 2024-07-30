@@ -144,4 +144,9 @@ export const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontFamily: 'JetBrainsMono',
   },
+  chatHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 15
+  }
 })

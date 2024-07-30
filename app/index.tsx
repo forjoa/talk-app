@@ -2,7 +2,8 @@ import { View, Text, Pressable, TextInput, FlatList } from 'react-native'
 import { Link, useRouter } from 'expo-router'
 import { API, styles } from '../utils/constants'
 import { useEffect, useState } from 'react'
-import { deleteItem, getData } from '../utils/localStorage'
+import { deleteItem } from '../utils/localStorage'
+import { fetchUsername } from '../utils/lib'
 
 interface UserI {
   user_id: number
@@ -21,22 +22,7 @@ export default function HomeScreen() {
   const router = useRouter()
 
   useEffect(() => {
-    const fetchUsername = async () => {
-      const userSession = await getData('user')
-      if (userSession) {
-        const result = await fetch(`${API}/api/auth/getPayload`, {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ encrypted: userSession }),
-        }).then((res) => res.json())
-        setUser(result)
-      } else {
-        router.replace('/login')
-      }
-    }
-    fetchUsername()
+    fetchUsername().then(res => setUser(res))
   }, [])
 
   useEffect(() => {

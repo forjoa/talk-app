@@ -36,7 +36,16 @@ export default function DetailsScreen() {
 
   useEffect(() => {
     if (id && currentUserID) {
-      fetch(`${API}/api/users/getOtherUsername`)
+      fetch(`${API}/api/users/getOtherUsername`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          conversation_id: id,
+          current_user_id: currentUserID,
+        }),
+      })
         .then((res) => res.json())
         .then((response) => setOtherFullname(response.other_fullname))
     }
@@ -63,7 +72,18 @@ export default function DetailsScreen() {
             <Pressable onPress={() => router.back()}>
               <AntDesign name='arrowleft' size={20} color='white' />
             </Pressable>
-            <Text style={styles.text}>Details of chat: {id} </Text>
+            <View style={styles.avatar}>
+              <Text style={styles.text}>
+                {otherFullname
+                  ? otherFullname
+                      .toString()
+                      .split(' ')
+                      .map((name: string) => name.charAt(0))
+                      .join('')
+                  : ''}
+              </Text>
+            </View>
+            <Text style={styles.text}>{otherFullname}</Text>
           </View>
         </View>
       </View>

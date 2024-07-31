@@ -140,8 +140,12 @@ export const styles = StyleSheet.create({
     backgroundColor: '#EEEEF0',
     alignSelf: 'flex-start',
   },
-  messageText: {
-    color: '#FFFFFF',
+  messageTextRight: {
+    color: 'white',
+    fontFamily: 'JetBrainsMono',
+  },
+  messageTextLeft: {
+    color: 'black',
     fontFamily: 'JetBrainsMono',
   },
   chatHeader: {

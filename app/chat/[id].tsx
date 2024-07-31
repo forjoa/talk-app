@@ -5,6 +5,8 @@ import AntDesign from '@expo/vector-icons/AntDesign'
 import { useEffect, useState } from 'react'
 import io from 'socket.io-client'
 import { fetchUsername } from '../../utils/lib'
+import Messages from '../../components/Messages'
+import MessageInput from '../../components/MessageInput'
 
 export default function DetailsScreen() {
   const [currentUserID, setCurrentUserID] = useState<number | undefined>(
@@ -86,6 +88,8 @@ export default function DetailsScreen() {
             <Text style={styles.text}>{otherFullname}</Text>
           </View>
         </View>
+        <Messages messages={messages} currentUserID={currentUserID as number} />
+        <MessageInput/>
       </View>
     </View>
   )

@@ -41,7 +41,9 @@ const Messages = ({
                 : styles.messageBubbleLeft,
             ]}
           >
-            <Text style={styles.messageText}>{message.content}</Text>
+            <Text style={message.sender_id === currentUserID
+                ? styles.messageTextRight
+                : styles.messageTextLeft}>{message.content}</Text>
           </View>
         </View>
       ))}

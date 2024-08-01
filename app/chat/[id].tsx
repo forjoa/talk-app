@@ -66,6 +66,15 @@ export default function DetailsScreen() {
     }
   }, [socket, id])
 
+  const sendMessage = (message: string) => {
+    if (socket && id) {
+      socket.emit('chat message', {
+        room: id.toString(),
+        msg: { message, currentUserID },
+      })
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.navContainer}>
@@ -89,7 +98,11 @@ export default function DetailsScreen() {
           </View>
         </View>
         <Messages messages={messages} currentUserID={currentUserID as number} />
-        <MessageInput/>
+        <MessageInput
+          sendMessage={sendMessage}
+          chatId={id}
+          currentUserID={currentUserID}
+        />
       </View>
     </View>
   )

@@ -115,7 +115,7 @@ export const styles = StyleSheet.create({
     borderColor: '#5F606A',
     borderRadius: borderRadius,
     padding: 10,
-    marginBottom: 10
+    marginBottom: 10,
   },
   messageContainer: {
     flexDirection: 'row',
@@ -151,11 +151,39 @@ export const styles = StyleSheet.create({
   chatHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 15
+    gap: 15,
   },
   avatar: {
     backgroundColor: '#555',
     padding: 10,
-    borderRadius: 50
-  }
+    borderRadius: 50,
+  },
+  messageInputContainer: {
+    borderTopWidth: 1,
+    borderTopColor: '#333',
+    backgroundColor: '#000',
+    padding: 16,
+  },
+  messageInputInnerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#666',
+    borderRadius: borderRadius,
+    padding: 8,
+  },
+  messageTextInput: {
+    flex: 1,
+    color: '#fff',
+    fontSize: 14,
+    fontFamily: fontFamily,
+  },
+  messageSendButton: {
+    backgroundColor: '#fff',
+    borderRadius: borderRadius,
+    padding: 8,
+  },
+  messageSendIcon: {
+    width: 24,
+    height: 24,
+  },
 })

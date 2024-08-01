@@ -98,11 +98,13 @@ export default function DetailsScreen() {
           </View>
         </View>
         <Messages messages={messages} currentUserID={currentUserID as number} />
-        <MessageInput
-          sendMessage={sendMessage}
-          chatId={id}
-          currentUserID={currentUserID}
-        />
+        {currentUserID && (
+          <MessageInput
+            sendMessage={sendMessage}
+            chatId={id}
+            currentUserID={currentUserID}
+          />
+        )}
       </View>
     </View>
   )

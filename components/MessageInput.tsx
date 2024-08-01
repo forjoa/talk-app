@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
-import {
-  View,
-  TextInput,
-  StyleSheet,
-  Pressable,
-  Text
-} from 'react-native'
+import { View, TextInput, StyleSheet, Pressable, Text } from 'react-native'
+import { API } from '../utils/constants'
 
 function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   const [formData, setFormData] = useState({
@@ -17,7 +12,16 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   const handleSubmit = async () => {
     if (formData.conversationId && formData.senderId && formData.content) {
       sendMessage(formData.content)
-      // await insertMessage(formData);
+      const result = await fetch(`${API}/api/chats/message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      }).then(r => r.json())
+
+      console.log(result);
+      
       setFormData({ ...formData, content: '' })
     }
   }
@@ -70,8 +74,8 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     color: '#fff',
-    paddingHorizontal: 16,
     fontSize: 14,
+    fontFamily: 'JetBrainsMono',
   },
   sendButton: {
     backgroundColor: '#fff',
@@ -83,8 +87,8 @@ const styles = StyleSheet.create({
     height: 24,
   },
   text: {
-    fontFamily: 'JetBrainsMono'
-  }
+    fontFamily: 'JetBrainsMono',
+  },
 })
 
 export default MessageInput

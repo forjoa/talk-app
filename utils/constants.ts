@@ -98,6 +98,9 @@ export const styles = StyleSheet.create({
     borderRadius: borderRadius,
     padding: 20,
   },
+  chatListContainer: {
+    paddingBottom: 20
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',

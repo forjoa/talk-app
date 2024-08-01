@@ -12,15 +12,13 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   const handleSubmit = async () => {
     if (formData.conversationId && formData.senderId && formData.content) {
       sendMessage(formData.content)
-      const result = await fetch(`${API}/api/chats/message`, {
+      await fetch(`${API}/api/chats/message`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      }).then(r => r.json())
-
-      console.log(result);
+      })
       
       setFormData({ ...formData, content: '' })
     }

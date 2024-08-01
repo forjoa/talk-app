@@ -19,7 +19,7 @@ const Messages = ({
 
   return (
     <ScrollView
-      style={styles.navContainer}
+      style={styles.chatListContainer}
       contentContainerStyle={styles.chatList}
       ref={messagesEndRef}
     >

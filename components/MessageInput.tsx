@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { View, TextInput, StyleSheet, Pressable, Text } from 'react-native'
-import { API } from '../utils/constants'
+import { View, TextInput, Pressable, Text } from 'react-native'
+import { API, styles } from '../utils/constants'
 
 function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
         },
         body: JSON.stringify(formData),
       })
-      
+
       setFormData({ ...formData, content: '' })
     }
   }
@@ -36,10 +36,10 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
+    <View style={styles.messageInputContainer}>
+      <View style={styles.messageInputInnerContainer}>
         <TextInput
-          style={styles.textInput}
+          style={styles.messageTextInput}
           placeholder='Type your message...'
           placeholderTextColor='#888'
           multiline
@@ -47,46 +47,12 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
           value={formData.content}
           onKeyPress={handleKeyPress}
         />
-        <Pressable onPress={handleSubmit} style={styles.sendButton}>
+        <Pressable onPress={handleSubmit} style={styles.messageSendButton}>
           <Text style={styles.text}>Send</Text>
         </Pressable>
       </View>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    borderTopWidth: 1,
-    borderTopColor: '#333',
-    backgroundColor: '#000',
-    padding: 16,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#666',
-    borderRadius: 8,
-    padding: 8,
-  },
-  textInput: {
-    flex: 1,
-    color: '#fff',
-    fontSize: 14,
-    fontFamily: 'JetBrainsMono',
-  },
-  sendButton: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 8,
-  },
-  sendIcon: {
-    width: 24,
-    height: 24,
-  },
-  text: {
-    fontFamily: 'JetBrainsMono',
-  },
-})
 
 export default MessageInput

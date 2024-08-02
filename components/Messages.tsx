@@ -22,6 +22,7 @@ const Messages = ({
       style={styles.chatListContainer}
       contentContainerStyle={styles.chatList}
       ref={messagesEndRef}
+      onContentSizeChange={() => messagesEndRef.current?.scrollToEnd({ animated: true })}
     >
       {messages?.map((message, index) => (
         <View

@@ -22,7 +22,9 @@ const Messages = ({
       style={styles.chatListContainer}
       contentContainerStyle={styles.chatList}
       ref={messagesEndRef}
-      onContentSizeChange={() => messagesEndRef.current?.scrollToEnd({ animated: true })}
+      onContentSizeChange={() =>
+        messagesEndRef.current?.scrollToEnd({ animated: true })
+      }
     >
       {messages?.map((message, index) => (
         <View
@@ -42,9 +44,15 @@ const Messages = ({
                 : styles.messageBubbleLeft,
             ]}
           >
-            <Text style={message.sender_id === currentUserID
-                ? styles.messageTextRight
-                : styles.messageTextLeft}>{message.content}</Text>
+            <Text
+              style={
+                message.sender_id === currentUserID
+                  ? styles.messageTextRight
+                  : styles.messageTextLeft
+              }
+            >
+              {message.content}
+            </Text>
           </View>
         </View>
       ))}

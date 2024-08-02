@@ -1,5 +1,11 @@
 import { useRouter, useLocalSearchParams } from 'expo-router'
-import { View, Text, Pressable } from 'react-native'
+import {
+  View,
+  Text,
+  Pressable,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native'
 import { API, styles } from '../../utils/constants'
 import AntDesign from '@expo/vector-icons/AntDesign'
 import { useEffect, useState } from 'react'
@@ -76,7 +82,10 @@ export default function DetailsScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
       <View style={styles.navContainer}>
         <View style={styles.header}>
           <View style={styles.chatHeader}>
@@ -106,6 +115,6 @@ export default function DetailsScreen() {
           />
         )}
       </View>
-    </View>
+    </KeyboardAvoidingView>
   )
 }

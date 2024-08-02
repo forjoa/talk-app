@@ -4,6 +4,7 @@ import { API, styles } from '../utils/constants'
 import { useEffect, useState } from 'react'
 import { deleteItem } from '../utils/localStorage'
 import { fetchUsername } from '../utils/lib'
+import Feather from '@expo/vector-icons/Feather'
 
 interface UserI {
   user_id: number
@@ -22,7 +23,7 @@ export default function HomeScreen() {
   const router = useRouter()
 
   useEffect(() => {
-    fetchUsername().then(res => setUser(res))
+    fetchUsername().then((res) => setUser(res))
   }, [])
 
   useEffect(() => {
@@ -52,7 +53,9 @@ export default function HomeScreen() {
         <View style={styles.header}>
           <Text style={styles.text}>Welcome, {user?.username}!</Text>
           <Pressable onPress={logOut}>
-            <Text style={styles.warningButton}>Log out</Text>
+            <Text style={styles.warningButton}>
+              <Feather name='log-out' size={22} color='red' />
+            </Text>
           </Pressable>
         </View>
         <TextInput

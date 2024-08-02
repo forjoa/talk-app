@@ -181,6 +181,7 @@ export const styles = StyleSheet.create({
     borderTopColor: '#333',
     backgroundColor: '#000',
     paddingTop: 10,
+    marginBottom: -40,
   },
   messageInputInnerContainer: {
     flexDirection: 'row',

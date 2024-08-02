@@ -51,7 +51,16 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <View style={styles.navContainer}>
         <View style={styles.header}>
-          <Text style={styles.text}>Welcome, {user?.username}!</Text>
+          <Text style={styles.text}>
+            Welcome,{' '}
+            <Pressable
+              onPress={() => router.push('/myProfile')}
+              style={styles.linkButton}
+            >
+              <Text style={styles.textLink}>{user?.username}</Text>
+            </Pressable>
+            !
+          </Text>
           <Pressable onPress={logOut}>
             <Text style={styles.warningButton}>
               <Feather name='log-out' size={22} color='red' />

@@ -36,7 +36,6 @@ export default function MyProfile() {
         Toast.error(result.message, 'top')
       }
     } catch (e) {
-      console.log(e)
       Toast.error('Error while updating info', 'top')
     }
   }

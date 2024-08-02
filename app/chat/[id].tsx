@@ -21,7 +21,6 @@ export default function DetailsScreen() {
   const [messages, setMessages] = useState<any[]>([])
   const [otherFullname, setOtherFullname] = useState<any>()
   const [socket, setSocket] = useState<any>(null)
-  const [saving, setSaving] = useState<boolean>()
   const { id } = useLocalSearchParams()
   const router = useRouter()
 

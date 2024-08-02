@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, TextInput, Pressable, Text } from 'react-native'
 import { API, styles } from '../utils/constants'
+import Feather from '@expo/vector-icons/Feather'
 
 function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
           onKeyPress={handleKeyPress}
         />
         <Pressable onPress={handleSubmit} style={styles.messageSendButton}>
-          <Text style={styles.text}>Send</Text>
+          <Feather name='send' size={24} color='black' />
         </Pressable>
       </View>
     </View>

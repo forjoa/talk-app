@@ -99,7 +99,7 @@ export const styles = StyleSheet.create({
     padding: 20,
   },
   chatListContainer: {
-    paddingBottom: 20
+    paddingBottom: 20,
   },
   header: {
     flexDirection: 'row',
@@ -165,7 +165,7 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#333',
     backgroundColor: '#000',
-    padding: 16,
+    paddingTop: 10,
   },
   messageInputInnerContainer: {
     flexDirection: 'row',
@@ -179,6 +179,7 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     fontFamily: fontFamily,
+    marginLeft: 10,
   },
   messageSendButton: {
     backgroundColor: '#fff',

@@ -12,7 +12,7 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
 
   const handleSubmit = async () => {
     if (formData.conversationId && formData.senderId && formData.content) {
-      sendMessage(formData.content)
+      sendMessage(formData.content.trim())
       await fetch(`${API}/api/chats/message`, {
         method: 'POST',
         headers: {

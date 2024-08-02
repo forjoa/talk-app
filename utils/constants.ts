@@ -40,6 +40,20 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
   },
+  textLink: {
+    fontFamily: fontFamily,
+    fontSize: 16,
+    color: 'white',
+    textDecorationColor: 'white',
+    textDecorationLine: 'underline',
+    marginBottom: 0,
+    paddingBottom: 0,
+  },
+  linkButton: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+  },
   warningButton: {
     color: 'red',
     fontFamily: fontFamily,

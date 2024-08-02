@@ -108,7 +108,8 @@ export const styles = StyleSheet.create({
     marginBottom: 14,
   },
   chatList: {
-    marginTop: 14,
+    marginTop: 10,
+    marginBottom: 14,
   },
   listItem: {
     color: 'white',

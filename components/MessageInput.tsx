@@ -49,7 +49,7 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
           onKeyPress={handleKeyPress}
         />
         <Pressable onPress={handleSubmit} style={styles.messageSendButton}>
-          <Feather name='send' size={24} color='black' />
+          <Feather name='send' size={18} color='black' />
         </Pressable>
       </View>
     </View>

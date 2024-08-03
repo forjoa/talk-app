@@ -26,7 +26,7 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   }
 
   const handleInputChange = (text: string) => {
-    setFormData({ ...formData, content: text })
+    setFormData({ ...formData, content: text.trim() })
   }
 
   const handleKeyPress = (e: any) => {

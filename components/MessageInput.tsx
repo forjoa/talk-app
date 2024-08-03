@@ -29,13 +29,6 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
     setFormData({ ...formData, content: text })
   }
 
-  const handleKeyPress = (e: any) => {
-    if (e.nativeEvent.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      handleSubmit()
-    }
-  }
-
   return (
     <View style={styles.messageInputContainer}>
       <View style={styles.messageInputInnerContainer}>

@@ -177,9 +177,6 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
   },
   messageInputContainer: {
-    borderTopWidth: 1,
-    borderTopColor: '#333',
-    backgroundColor: '#000',
     paddingTop: 10,
     marginBottom: -40,
   },
@@ -188,22 +185,23 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#666',
     borderRadius: borderRadius,
-    padding: 8,
+    padding: 4,
   },
   messageTextInput: {
     flex: 1,
     color: '#fff',
     fontSize: 14,
     fontFamily: fontFamily,
-    marginLeft: 10,
+    marginLeft: 6,
+    paddingTop: 0
   },
   messageSendButton: {
     backgroundColor: '#fff',
     borderRadius: borderRadius,
-    padding: 8,
+    padding: 4,
   },
   messageSendIcon: {
-    width: 24,
-    height: 24,
+    width: 18,
+    height: 18,
   },
 })

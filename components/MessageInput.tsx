@@ -18,7 +18,7 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, content: formData.content.trim() }),
       })
 
       setFormData({ ...formData, content: '' })
@@ -26,7 +26,7 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
   }
 
   const handleInputChange = (text: string) => {
-    setFormData({ ...formData, content: text.trim() })
+    setFormData({ ...formData, content: text })
   }
 
   const handleKeyPress = (e: any) => {
@@ -46,7 +46,6 @@ function MessageInput({ chatId, currentUserID, sendMessage }: any) {
           multiline
           onChangeText={handleInputChange}
           value={formData.content}
-          onKeyPress={handleKeyPress}
         />
         <Pressable onPress={handleSubmit} style={styles.messageSendButton}>
           <Feather name='send' size={18} color='black' />

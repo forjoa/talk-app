@@ -48,7 +48,10 @@ export default function MyProfile() {
           <AntDesign name='arrowleft' size={20} color='white' />
         </Pressable>
         <Text style={styles.title}>Edit user information</Text>
-        <Text style={styles.subtitle}>Update your profile details.</Text>
+        <Text style={styles.subtitle}>
+          Update your profile details. Remember you just can change your
+          fullname.
+        </Text>
         <View style={styles.inputContainer}>
           <TextInput
             placeholder='Fullname'
